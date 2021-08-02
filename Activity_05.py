@@ -7,5 +7,8 @@ print("Sum of all the numbers =",sum(a))
 # sum1 = 0
 # for number in b:
 #     sum1+=int(number)
-
 # print("Sum of all the numbers is =",sum1)
+
+#or
+# a = list(map(int,input().split()))
+# print("Sum of all the numbers =",sum(a))
