@@ -21,7 +21,6 @@ def form_int_dict( list1, list2 ):
         b[list1[i]] = list2[i]
     return b
 
-
 def sorted_dict(a):
     b = {}
     for items in sorted(a.keys()):
