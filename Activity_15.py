@@ -7,7 +7,7 @@ def input_string():
     return lis
 
 def sort_using_meth(word):
-    word.sort()  # even if nothing is returned, the original list is modified
+    word.sort()  # the original list is modified
     return word
 
 def sort_using_func(word):
