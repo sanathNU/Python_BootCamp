@@ -1,3 +1,4 @@
+import math
 def inp():    
     print("Enter only number:\n")
     a = int(input())
@@ -9,7 +10,7 @@ def prime(a):
     else:
         count = 0
         numbers = []
-        for i in range(2,a-1):                  #The Brutefore way to check prime or not prime
+        for i in range(2,math.floor(math.sqrt(a)):                  #The Brutefore way to check prime or not prime
             if( a%i == 0):
                 count+=1
                 numbers.append(str(i))
