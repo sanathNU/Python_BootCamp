@@ -10,7 +10,7 @@ def prime(a):
     else:
         count = 0
         numbers = []
-        for i in range(2,math.floor(math.sqrt(a)):                  #The Brutefore way to check prime or not prime
+        for i in range(2,math.floor(math.sqrt(a))):                  #Reduced the size of the bruteforce attack
             if( a%i == 0):
                 count+=1
                 numbers.append(str(i))
