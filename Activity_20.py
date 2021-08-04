@@ -7,17 +7,11 @@ def take_input():
 
 #forms dictorinary of asii value and hence a different criterion for sorting
 def form_dict( list1 , list2 ):
-    a ={}
-    for i in range(len(list1)):
-        a[list1[i]] = list2[i]
+    a = {list1[i]:list2[i] for i in range(len(list1))}
     return a
 
 def sorted_dict(a):
-    b,c ={},{}
-    for key,value in a.items():
-        b[int(value)] = key
-    for key in sorted(b.keys()):
-        c[b[key]] = key
+    c = {k:v for k,v in sorted(a.items(), key = lambda item: item[1])} #simpler and uses both dictionary comprehension and the idea of lambda as key in sorted function
     return c
 
 def display(dictA,dictB):
