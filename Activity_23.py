@@ -1,10 +1,17 @@
-mport copy
+#I have chosen state machine approach to solve this problem, it's a technqniue for digital circuit realization
+#BAsically there are 3 functions and 4 states in this code, it's intermingled in a lot of ways, but get this
+# State1 --> State2 if (2 numbers are same) else goes back to state1
+# State2 --> State3 if (2 numbers are same) else goes back to state1
+# State3 --> State1 regardless of whether numbers are same or not
+
+#The example I took here is 23444. you should get a 4 list answer
+import copy
 table = {0:'',1:'',2:'abc',3:'def',4:'ghi',5:'jkl',6:'mno',7:'pqrs',8:'tuv',9:'wxyz'}
 
 def input_stuff():
     return list(map(int,list(input())))
 
-#for 1st type of operation
+#for 1st type of operation(represented as a tree)
 #   A(a)
 #   |
 #   B(ad)
@@ -15,7 +22,7 @@ def func0(i,output,count):
     output = [out+ten for out in output ]
     return output
 
-#done for 2nd type of operations
+#done for 2nd type of operations (represented as a tree)
 #   A(adgg)
 #  /        \
 # B(adggg)  C(adgh)
@@ -27,7 +34,7 @@ def func1(i,x,count):
     b=func0(i,b,count+1)
     return a,b
 
-#done for 3rd type of operation
+#done for 3rd type of operation (represented as a tree)
 #   A(ad)
 #   /    \
 # B(adgg) C(adh)
@@ -39,7 +46,7 @@ def func2(i,x,count):
     b=func0(i,b,count+1)
     return a,b
 
-#done for 4th type of operation
+#done for 4th type of operation (represente as a tree)
 #   A(adh)
 #  /      \
 # B(adhg)  C(adk)
@@ -51,15 +58,18 @@ def func3(i,x,count):
     b =func0(i,b,count+2)
     return a,b
 
+#Code for state1
 def state1(i,a):
     # print(a)
     b = func0(i,a,0)
     return b
 
+#Code for state2
 def state2(i,a):
     x,y = func2(i,a,0)
     return x+y
 
+#Code for state3( more tricky one)
 def state3(i,a):
     print(a[-2],a[-1])
     x = [a[-2]]
@@ -68,8 +78,8 @@ def state3(i,a):
     list2=func3(i,y,0)
     list1 = [x[0] for x in list1]
     list2 = [x[0] for x in list2]
-
     return list1+list2
+
 
 def find_out(num,n):
     output=['']
@@ -80,7 +90,6 @@ def find_out(num,n):
             test = num[i]==num[i+1]  # Our testing loop
         else:
             test = False
-        print(state,dl)
         if dl==1 and not test:
             print('loop skipped!')
             dl=0
