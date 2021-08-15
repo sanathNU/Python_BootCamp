@@ -50,12 +50,15 @@ def func2(i,x,count):
 #   A(adh)
 #  /      \
 # B(adhg)  C(adk)
-def func3(i,x,count):
+def func3(i,x,count,w='n'):
     a = copy.deepcopy(x)
     b = copy.deepcopy(x)
     b = [x[:-1] for x in b]
     a =func0(i,a,count)
-    b =func0(i,b,count+2)
+    if(w =='w'):
+        b= func0(i,b,count+3)
+    else:
+        b =func0(i,b,count+2)
     return a,b
 
 #Code for state1
@@ -80,6 +83,15 @@ def state3(i,a):
     list2 = [x[0] for x in list2]
     return list1+list2
 
+#Special Case only for w! This works!!
+def specialW(i,a):
+    A,B,C,D = [a[0]],[a[1]],[a[2]],[a[3]]
+    p,q = func3(i,A,0,'w')
+    r,s = func3(i,B,0)
+    u,v = func1(i,C,0)
+    w,x = func1(i,D,0)
+    z=p+q+r+s+u+v+w+x
+    return z
 
 def find_out(num,n):
     output=['']
@@ -117,15 +129,14 @@ def find_out(num,n):
                 
         if state==3:
             if test and num[i]==9:
-                print("You can't enter here!")
-                output=['']
+                output = specialW(num[i],output)
+                # output=['']
                 #It is the case of w so..let is be for now
                 pass
             else:
                 state=1
                 output =state1(num[i],output)
 
-        print('Output of every loop',output,state)
     return output
             
         
