@@ -1,5 +1,6 @@
 #I have chosen state machine approach to solve this problem, it's a technqniue for digital circuit realization
 #BAsically there are 3 functions and 4 states in this code, it's intermingled in a lot of ways, but get this
+#State1 == Each key is pressed only once. #State2 == One Key is pressed twice, #State3 == One Key is pressed thrice, also special case, 1 key is pressed 4 times 
 # State1 --> State2 if (2 numbers are same) else goes back to state1
 # State2 --> State3 if (2 numbers are same) else goes back to state1
 # State3 --> State1 regardless of whether numbers are same or not
