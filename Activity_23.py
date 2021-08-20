@@ -128,10 +128,10 @@ def find_out(num,n):
                 continue
                 
         if state==3:
-            if test and num[i]==9:
+            if test and (num[i]==9 or num[i]==7):
                 output = specialW(num[i],output)
                 # output=['']
-                #It is the case of w so..let is be for now
+                #It is the case of w and p so..let is be for now
                 pass
             else:
                 state=1
